@@ -1,3 +1,11 @@
+//
+//  LoginView.swift
+//  ShesBetterResources
+//
+//  Created by Connor Ott on 12/23/24.
+//
+
+
 import SwiftUI
 import FirebaseAuth
 
