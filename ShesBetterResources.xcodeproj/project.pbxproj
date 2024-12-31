@@ -31,6 +31,9 @@
 		BB224F012D194610000805FA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F002D194610000805FA /* FirebaseStorage */; };
 		BB224F032D194610000805FA /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F022D194610000805FA /* FirebaseStorageCombine-Community */; };
 		BB224F052D194610000805FA /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F042D194610000805FA /* FirebaseVertexAI */; };
+		BB721D5A2D2393180081B078 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info (1).plist */; };
+		BB721D5B2D2393180081B078 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info (1).plist */; };
+		BB721D5C2D2393180081B078 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info (1).plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,7 @@
 		BB224EA82D1943F7000805FA /* ShesBetterResources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShesBetterResources.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB224EB82D1943FB000805FA /* ShesBetterResourcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShesBetterResourcesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB224EC22D1943FB000805FA /* ShesBetterResourcesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShesBetterResourcesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB721D592D2393180081B078 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -126,6 +130,7 @@
 		BB224E9F2D1943F7000805FA = {
 			isa = PBXGroup;
 			children = (
+				BB721D592D2393180081B078 /* GoogleService-Info (1).plist */,
 				BB224EAA2D1943F7000805FA /* ShesBetterResources */,
 				BB224EBB2D1943FB000805FA /* ShesBetterResourcesTests */,
 				BB224EC52D1943FB000805FA /* ShesBetterResourcesUITests */,
@@ -314,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB721D5B2D2393180081B078 /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB721D5C2D2393180081B078 /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB721D5A2D2393180081B078 /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
