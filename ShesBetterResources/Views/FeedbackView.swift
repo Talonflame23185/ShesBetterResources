@@ -20,7 +20,7 @@ struct FeedbackView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Image("background")
+                Image("Background")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()

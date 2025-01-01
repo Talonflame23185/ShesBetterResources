@@ -17,8 +17,8 @@ struct FinancialServicesView: View {
         VStack(alignment: .leading) {
             // Title
             Text("Financial Services")
-                .font(.custom("Impact", size: 35))
-                .foregroundColor(Color(hex: "98b6f8"))
+                .font(.custom("Lora-Regular", size: 35))
+                .foregroundColor(Color(hex: "f4eof8"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top)
 
@@ -51,19 +51,19 @@ struct FinancialServicesView: View {
         }
         .padding()
         .background(
-            Image("background")
+            Image("Background")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
         )
-        .navigationTitle("Financial Services")
+        .navigationTitle("Financial Resources")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: fetchFinancialResources)
     }
 
     // Fetch financial resources from Firestore
     private func fetchFinancialResources() {
-        db.collection("resourcesApp")
+        db.collection("shesbetterResources")
             .whereField("Resource Type", isEqualTo: "financial")
             .getDocuments { querySnapshot, error in
                 if let error = error {

@@ -15,7 +15,7 @@ struct ForgotPasswordView: View {
     var body: some View {
         ZStack {
             // Background image
-            Image("background")
+            Image("Background")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
@@ -23,8 +23,8 @@ struct ForgotPasswordView: View {
             VStack(spacing: 20) {
                 Spacer()
 
-                // BetterLogo2 at the top
-                Image("BetterLogo2")
+                // Shes better logo at the top
+                Image("ShesBetterLogo")
                     .resizable()
                     .scaledToFit()
                     .frame(height: 200)
@@ -32,13 +32,13 @@ struct ForgotPasswordView: View {
 
                 // Title
                 Text("Forgot Password")
-                    .font(.custom("Impact", size: 35))
+                    .font(.custom("Lora-Regular", size: 35))
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
 
                 // Instruction Text
                 Text("Enter your email to receive reset instructions.")
-                    .font(.custom("Impact", size: 24))
+                    .font(.custom("Lora-Regular", size: 24))
                     .foregroundColor(.white.opacity(0.8))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
@@ -46,14 +46,14 @@ struct ForgotPasswordView: View {
                 // Email TextField styled like Login and Signup
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Email")
-                        .font(.custom("Impact", size: 18))
+                        .font(.custom("Lora-Regular", size: 18))
                         .foregroundColor(.white)
 
                     TextField("name@example.com", text: $email)
                         .padding()
-                        .background(Color(hex: "98b6f8"))
+                        .background(Color(hex: "ceb6e7"))
                         .cornerRadius(10)
-                        .foregroundColor(Color(hex: "251db4"))
+                        .foregroundColor(Color(hex: "9b98eb"))
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                 }
@@ -63,10 +63,10 @@ struct ForgotPasswordView: View {
                     sendPasswordReset()
                 }) {
                     Text("Submit")
-                        .font(.custom("Impact", size: 24))
+                        .font(.custom("Lora-Regular", size: 24))
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color(hex: "5a0ef6"))
+                        .background(Color(hex: "a17187"))
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
@@ -75,14 +75,14 @@ struct ForgotPasswordView: View {
                 // Confirmation or Error Message
                 if isRequestSent {
                     Text("Password reset instructions have been sent to your email.")
-                        .font(.custom("Impact", size: 14))
+                        .font(.custom("Lora-Regular", size: 14))
                         .foregroundColor(.green)
                         .padding(.top, 10)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 40)
                 } else if let errorMessage = errorMessage {
                     Text(errorMessage)
-                        .font(.custom("Impact", size: 14))
+                        .font(.custom("Lora-Regular", size: 14))
                         .foregroundColor(.red)
                         .padding(.top, 10)
                         .multilineTextAlignment(.center)

@@ -1,24 +1,24 @@
 //
-//  SelfCareResourcesView.swift
+//  FoodandClothingView.swift
 //  ShesBetterResources
 //
-//  Created by Connor Ott on 12/30/24.
+//  Created by Connor Ott on 1/1/25.
 //
 import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct SelfCareResourcesView: View {
+struct FoodandClothingView: View {
     @State private var searchText = ""
-    @State private var selfCareResources: [ResourceItem] = [] // Dynamic resources fetched from Firestore
+    @State private var academicResources: [ResourceItem] = [] // Dynamic resources fetched from Firestore
     private let db = Firestore.firestore()
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             // Title
-            Text("Self-Care Resources")
-                .font(.custom("Lora-Regular", size: 35))
-                .foregroundColor(Color(hex: "ecebeb"))
+            Text("Food and Clothing Resources")
+                .font(.custom("Impact", size: 35))
+                .foregroundColor(Color(hex: "98b6f8"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top)
 
@@ -50,26 +50,26 @@ struct SelfCareResourcesView: View {
         }
         .padding()
         .background(
-            Image("Background")
+            Image("background")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
         )
-        .navigationTitle("Self-Care Resources")
+        .navigationTitle("Food and Clothing Resources")
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear(perform: fetchSelfCareResources)
+        .onAppear(perform: fetchAcademicResources)
     }
 
-    // Fetch self-care resources from Firestore
-    private func fetchSelfCareResources() {
+    // Fetch academic resources from Firestore
+    private func fetchAcademicResources() {
         db.collection("shesbetterResources")
-            .whereField("Resource Type", isEqualTo: "self care")
+            .whereField("Resource Type", isEqualTo: "food and clothing")
             .getDocuments { querySnapshot, error in
                 if let error = error {
-                    print("Error fetching self-care resources: \(error)")
+                    print("Error fetching academic resources: \(error)")
                 } else {
                     guard let documents = querySnapshot?.documents else { return }
-                    self.selfCareResources = documents.compactMap { document in
+                    self.academicResources = documents.compactMap { document in
                         try? document.data(as: ResourceItem.self)
                     }
                 }
@@ -78,16 +78,14 @@ struct SelfCareResourcesView: View {
 
     // Filter resources based on search text
     private var filteredResources: [ResourceItem] {
-        selfCareResources.filter { resource in
+        academicResources.filter { resource in
             searchText.isEmpty || resource.title.lowercased().contains(searchText.lowercased())
         }
     }
 }
 
-
-struct SelfCareResourcesView_Previews: PreviewProvider {
+struct AcademicStressView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfCareResourcesView()
+        FoodandClothingView()
     }
 }
-

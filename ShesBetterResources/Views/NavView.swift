@@ -27,7 +27,7 @@ struct NavView: View {
     var body: some View {
         ZStack {
             // Background for the app content
-            Color("251db4").ignoresSafeArea()
+            Color("d4bdd2").ignoresSafeArea()
 
             VStack(spacing: 0) {
                 // Main content

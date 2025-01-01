@@ -22,7 +22,7 @@ struct ResourceItem: Identifiable, Codable {
         case title                      // Matches "title" in Firestore
         case phone_number = "phone number" // Matches "phone number" in Firestore
         case website                    // Matches "website" in Firestore
-        case resourceType = "Resource Type" // Matches "Resource Type" in Firestore
+        case resourceType = "resource type" // Matches "Resource Type" in Firestore
     }
 }
 
@@ -81,7 +81,7 @@ struct ResourcesAppView: View {
                 
                 // Title
                 Text("Resources")
-                    .font(.custom("Lobster1.4", size: UIDevice.current.userInterfaceIdiom == .pad ? 80 : 60))
+                    .font(.custom("Lora-Regular", size: UIDevice.current.userInterfaceIdiom == .pad ? 80 : 60))
                     .foregroundColor(.white)
                     .padding(.top, -1)
                     .padding(.bottom, -10)
@@ -150,7 +150,7 @@ struct ResourcesAppView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
-                Image("background")
+                Image("Background")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
@@ -163,7 +163,7 @@ struct ResourcesAppView: View {
 
     // Fetch resources from Firestore
     private func fetchResources() {
-        db.collection("resourcesApp")
+        db.collection("shesbetterResources")
             .getDocuments { (querySnapshot, error) in
                 if let error = error {
                     print("Error fetching documents: \(error)")

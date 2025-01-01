@@ -56,14 +56,14 @@ struct HomePageView: View {
                     .padding([.horizontal, .top], UIDevice.current.userInterfaceIdiom == .pad ? 24 : 16)
 
                     // Title
-                    Text("BetterResources")
-                        .font(.custom("Impact", size: UIDevice.current.userInterfaceIdiom == .pad ? 65 : 55))
+                    Text("ShesBetter")
+                        .font(.custom("Lora-Regular", size: UIDevice.current.userInterfaceIdiom == .pad ? 65 : 55))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         .padding(.top, -10)
 
                     // Subtitle
-                    Text("Mental Health Resources for Students")
+                    Text("Resources for Women")
                         .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 28 : 24))
                         .foregroundColor(.white)
                         .padding(.bottom, 10)
@@ -88,14 +88,14 @@ struct HomePageView: View {
                                 NavigationLink(destination: FinancialServicesView()) {
                                     categoryButton(icon: "building.columns.fill", title: "Financial Services")
                                 }
-                                NavigationLink(destination: EmergencyHotlinesView()) {
+                                NavigationLink(destination: EmergencyResourcesView()) {
                                     categoryButton(icon: "phone.arrow.up.right.fill", title: "Emergency Hotlines")
                                 }
                                 NavigationLink(destination: SelfCareResourcesView()) {
                                     categoryButton(icon: "heart.fill", title: "Self-Care Resources")
                                 }
-                                NavigationLink(destination: AcademicStressView()) {
-                                    categoryButton(icon: "book.fill", title: "Academic Stress Support")
+                                NavigationLink(destination: FoodandClothingView()) {
+                                    categoryButton(icon: "apple.fill", title: "Food and Clothing Resources")
                                 }
                             }
                             .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .pad ? 24 : 16)
@@ -121,7 +121,7 @@ struct HomePageView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(
-                    Image("background")
+                    Image("Background")
                         .resizable()
                         .scaledToFill()
                         .ignoresSafeArea()
@@ -137,7 +137,7 @@ struct HomePageView: View {
     }
 
     private func fetchResources() {
-        db.collection("resourcesApp")
+        db.collection("shesbetterResources")
             .getDocuments { querySnapshot, error in
                 if let error = error {
                     print("Error fetching resources: \(error.localizedDescription)")

@@ -19,7 +19,7 @@ struct SavedView: View {
         NavigationView {
             ZStack {
                 // Background color
-                Image("background")
+                Image("Background")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()

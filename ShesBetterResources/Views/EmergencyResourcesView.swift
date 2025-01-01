@@ -8,7 +8,7 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct EmergencyHotlinesView: View {
+struct EmergencyResourcesView: View {
     @State private var searchText = ""
     @State private var emergencyHotlines: [ResourceItem] = [] // Dynamic resources fetched from Firestore
     private let db = Firestore.firestore()
@@ -17,8 +17,8 @@ struct EmergencyHotlinesView: View {
         VStack(alignment: .leading) {
             // Title
             Text("Emergency Hotlines")
-                .font(.custom("Impact", size: 35))
-                .foregroundColor(Color(hex: "98b6f8"))
+                .font(.custom("Lora-Regular", size: 35))
+                .foregroundColor(Color(hex: "f4eof8"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top)
 
@@ -51,7 +51,7 @@ struct EmergencyHotlinesView: View {
         }
         .padding()
         .background(
-            Image("background")
+            Image("Background")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
@@ -87,8 +87,8 @@ struct EmergencyHotlinesView: View {
 
 
 
-struct EmergencyHotlinesView_Previews: PreviewProvider {
+struct EmergencyResourcesView_Previews: PreviewProvider {
     static var previews: some View {
-        EmergencyHotlinesView()
+        EmergencyResourcesView()
     }
 }
