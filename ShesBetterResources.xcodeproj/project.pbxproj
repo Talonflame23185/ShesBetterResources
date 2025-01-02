@@ -31,9 +31,10 @@
 		BB224F012D194610000805FA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F002D194610000805FA /* FirebaseStorage */; };
 		BB224F032D194610000805FA /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F022D194610000805FA /* FirebaseStorageCombine-Community */; };
 		BB224F052D194610000805FA /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F042D194610000805FA /* FirebaseVertexAI */; };
-		BB721D5A2D2393180081B078 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info (1).plist */; };
-		BB721D5B2D2393180081B078 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info (1).plist */; };
-		BB721D5C2D2393180081B078 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info (1).plist */; };
+		BB6640DE2D260817008B73DA /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB6640DD2D260817008B73DA /* Lora-Regular.ttf */; };
+		BB721D5A2D2393180081B078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info.plist */; };
+		BB721D5B2D2393180081B078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info.plist */; };
+		BB721D5C2D2393180081B078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,23 +58,14 @@
 		BB224EA82D1943F7000805FA /* ShesBetterResources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShesBetterResources.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB224EB82D1943FB000805FA /* ShesBetterResourcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShesBetterResourcesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB224EC22D1943FB000805FA /* ShesBetterResourcesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShesBetterResourcesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB721D592D2393180081B078 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		BB6640DD2D260817008B73DA /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lora-Regular.ttf"; path = "../../../Downloads/Lora/static/Lora-Regular.ttf"; sourceTree = "<group>"; };
+		BB721D592D2393180081B078 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BB224EAA2D1943F7000805FA /* ShesBetterResources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ShesBetterResources;
-			sourceTree = "<group>";
-		};
-		BB224EBB2D1943FB000805FA /* ShesBetterResourcesTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ShesBetterResourcesTests;
-			sourceTree = "<group>";
-		};
-		BB224EC52D1943FB000805FA /* ShesBetterResourcesUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ShesBetterResourcesUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -130,10 +122,9 @@
 		BB224E9F2D1943F7000805FA = {
 			isa = PBXGroup;
 			children = (
-				BB721D592D2393180081B078 /* GoogleService-Info (1).plist */,
+				BB6640DD2D260817008B73DA /* Lora-Regular.ttf */,
+				BB721D592D2393180081B078 /* GoogleService-Info.plist */,
 				BB224EAA2D1943F7000805FA /* ShesBetterResources */,
-				BB224EBB2D1943FB000805FA /* ShesBetterResourcesTests */,
-				BB224EC52D1943FB000805FA /* ShesBetterResourcesUITests */,
 				BB224EA92D1943F7000805FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -234,9 +225,6 @@
 			dependencies = (
 				BB224EBA2D1943FB000805FA /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				BB224EBB2D1943FB000805FA /* ShesBetterResourcesTests */,
-			);
 			name = ShesBetterResourcesTests;
 			packageProductDependencies = (
 			);
@@ -256,9 +244,6 @@
 			);
 			dependencies = (
 				BB224EC42D1943FB000805FA /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				BB224EC52D1943FB000805FA /* ShesBetterResourcesUITests */,
 			);
 			name = ShesBetterResourcesUITests;
 			packageProductDependencies = (
@@ -319,7 +304,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB721D5B2D2393180081B078 /* GoogleService-Info (1).plist in Resources */,
+				BB6640DE2D260817008B73DA /* Lora-Regular.ttf in Resources */,
+				BB721D5B2D2393180081B078 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB721D5C2D2393180081B078 /* GoogleService-Info (1).plist in Resources */,
+				BB721D5C2D2393180081B078 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB721D5A2D2393180081B078 /* GoogleService-Info (1).plist in Resources */,
+				BB721D5A2D2393180081B078 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +587,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ShesBetterResources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "ShesBetterResources/Preview\\ Content";
 				DEVELOPMENT_TEAM = 59X4M9ZSZU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -611,12 +597,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ac23185.ShesBetterResources;
+				PRODUCT_BUNDLE_IDENTIFIER = "ShesBetterResources---com.shesbetterresources.www";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -631,7 +618,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ShesBetterResources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "ShesBetterResources/Preview\\ Content";
 				DEVELOPMENT_TEAM = 59X4M9ZSZU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -641,12 +628,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ac23185.ShesBetterResources;
+				PRODUCT_BUNDLE_IDENTIFIER = "ShesBetterResources---com.shesbetterresources.www";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
