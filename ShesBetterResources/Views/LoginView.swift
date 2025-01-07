@@ -22,10 +22,9 @@ struct LoginView: View {
             GeometryReader { geometry in
                 ZStack {
                     // Background
-                    Image("Background")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
+                    LinearGradient(gradient: Gradient(colors: [Color(hex: "#5ef7e8"), Color(hex: "#f567db")]),
+                                   startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
                     
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 20) {
@@ -41,7 +40,7 @@ struct LoginView: View {
                             
                             Text("Resources App for Women")
                                 .font(.custom("Lora-Regular", size: UIDevice.current.userInterfaceIdiom == .pad ? 28 : 22))
-                                .fontWeight(.semibold)
+                                .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .padding(.bottom, 20)
                             
@@ -55,7 +54,7 @@ struct LoginView: View {
 
                                     TextField("name@example.com", text: $email)
                                         .padding()
-                                        .background(Color(hex: "a17187"))
+                                        .background(Color(hex: "ffffff"))
                                         .cornerRadius(10)
                                         .foregroundColor(Color(hex: "9b98eb"))
                                         .keyboardType(.emailAddress)
@@ -74,7 +73,7 @@ struct LoginView: View {
                                         if isPasswordVisible {
                                             TextField("Password", text: $password)
                                                 .padding()
-                                                .background(Color(hex: "a17187"))
+                                                .background(Color(hex: "ffffff"))
                                                 .cornerRadius(10)
                                                 .foregroundColor(Color(hex: "9b98eb"))
                                                 .frame(maxWidth: .infinity)
@@ -82,7 +81,7 @@ struct LoginView: View {
                                         } else {
                                             SecureField("Password", text: $password)
                                                 .padding()
-                                                .background(Color(hex: "a17187"))
+                                                .background(Color(hex: "ffffff"))
                                                 .cornerRadius(10)
                                                 .foregroundColor(Color(hex: "9b98eb"))
                                                 .frame(maxWidth: .infinity)
@@ -93,7 +92,7 @@ struct LoginView: View {
                                             isPasswordVisible.toggle()
                                         }) {
                                             Image(systemName: isPasswordVisible ? "eye" : "eye.slash")
-                                                .foregroundColor(Color(hex: "a17187"))
+                                                .foregroundColor(Color(hex: "#57effa"))
                                                 .padding(.trailing, 26) // Align with padding
                                         }
                                     }
@@ -118,7 +117,7 @@ struct LoginView: View {
                                         .font(.custom("Lora-Regular", size: UIDevice.current.userInterfaceIdiom == .pad ? 26 : 22))
                                         .frame(maxWidth: .infinity)
                                         .padding(UIDevice.current.userInterfaceIdiom == .pad ? 16 : 12)
-                                        .background(Color(hex: "ceb6e7"))
+                                        .background(Color(hex: "#0eedc8"))
                                         .foregroundColor(.white)
                                         .cornerRadius(10)
                                 }
@@ -128,7 +127,7 @@ struct LoginView: View {
                                         .font(.custom("Lora-Regular", size: UIDevice.current.userInterfaceIdiom == .pad ? 26 : 22))
                                         .frame(maxWidth: .infinity)
                                         .padding(UIDevice.current.userInterfaceIdiom == .pad ? 16 : 12)
-                                        .background(Color(hex: "ceb6e7"))
+                                        .background(Color(hex: "#0eedc8"))
                                         .foregroundColor(.white)
                                         .cornerRadius(10)
                                 }
@@ -158,7 +157,7 @@ struct LoginView: View {
                                     }
                                 }
                             }
-                            .padding(.vertical, 20)
+                            .padding(.vertical, -20)
                             
                             // Add bottom padding to ensure content isn't cut off
                             Color.clear.frame(height: 40)

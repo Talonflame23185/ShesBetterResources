@@ -23,9 +23,8 @@ struct SignUpView: View {
             GeometryReader { geometry in
                 ZStack {
                     // Background image
-                    Image("Background")
-                        .resizable()
-                        .scaledToFill()
+                    LinearGradient(gradient: Gradient(colors: [Color(hex: "#5ef7e8"), Color(hex: "#f567db")]),
+                                   startPoint: .topLeading, endPoint: .bottomTrailing)
                         .ignoresSafeArea()
                     
                     ScrollView(showsIndicators: false) {
@@ -55,9 +54,9 @@ struct SignUpView: View {
                                         .foregroundColor(.white)
                                     TextField("Enter your name", text: $name)
                                         .padding()
-                                        .background(Color(hex: "9b98eb"))
+                                        .background(Color(hex: "#fca2fc"))
                                         .cornerRadius(10)
-                                        .foregroundColor(Color(hex: "a17187"))
+                                        .foregroundColor(Color(hex: "#f576f5"))
                                         .frame(maxWidth: .infinity)
                                         .padding(.horizontal, 16)
                                 }
@@ -69,9 +68,9 @@ struct SignUpView: View {
                                         .foregroundColor(.white)
                                     TextField("name@example.com", text: $email)
                                         .padding()
-                                        .background(Color(hex: "9b98eb"))
+                                        .background(Color(hex: "#fca2fc"))
                                         .cornerRadius(10)
-                                        .foregroundColor(Color(hex: "a17187"))
+                                        .foregroundColor(Color(hex: "#f576f5"))
                                         .keyboardType(.emailAddress)
                                         .autocapitalization(.none)
                                         .frame(maxWidth: .infinity)
@@ -87,23 +86,23 @@ struct SignUpView: View {
                                         if isPasswordVisible {
                                             TextField("Password", text: $password)
                                                 .padding()
-                                                .background(Color(hex: "9b98eb"))
+                                                .background(Color(hex: "#fca2fc"))
                                                 .cornerRadius(10)
-                                                .foregroundColor(Color(hex: "a17187"))
+                                                .foregroundColor(Color(hex: "#f576f5"))
                                                 .frame(maxWidth: .infinity)
                                                 .padding(.horizontal, 16)
                                         } else {
                                             SecureField("Password", text: $password)
                                                 .padding()
-                                                .background(Color(hex: "9b98eb"))
+                                                .background(Color(hex: "#fca2fc"))
                                                 .cornerRadius(10)
-                                                .foregroundColor(Color(hex: "a17187"))
+                                                .foregroundColor(Color(hex: "#f576f5"))
                                                 .frame(maxWidth: .infinity)
                                                 .padding(.horizontal, 16)
                                         }
                                         Button(action: { isPasswordVisible.toggle() }) {
                                             Image(systemName: isPasswordVisible ? "eye" : "eye.slash")
-                                                .foregroundColor(Color(hex: "ceb6e7"))
+                                                .foregroundColor(Color(hex: "#5ef7c4"))
                                                 .padding(.trailing, 26)
                                         }
                                     }
@@ -118,7 +117,7 @@ struct SignUpView: View {
                                     .font(.custom("Lora-Regular", size: UIDevice.current.userInterfaceIdiom == .pad ? 26 : 22))
                                     .frame(maxWidth: .infinity)
                                     .padding(UIDevice.current.userInterfaceIdiom == .pad ? 16 : 12)
-                                    .background(Color(hex: "d4bdd2"))
+                                    .background(Color(hex: "#5ef7c4"))
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                             }

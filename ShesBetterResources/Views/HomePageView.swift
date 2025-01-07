@@ -84,18 +84,30 @@ struct HomePageView: View {
                     ScrollView {
                         if searchText.isEmpty {
                             // Category Grid
-                            LazyVGrid(columns: gridColumns, spacing: 20) {
-                                NavigationLink(destination: FinancialServicesView()) {
-                                    categoryButton(icon: "building.columns.fill", title: "Financial Services")
-                                }
+                            LazyVGrid(columns: gridColumns, spacing: 10) {
                                 NavigationLink(destination: EmergencyResourcesView()) {
                                     categoryButton(icon: "phone.arrow.up.right.fill", title: "Emergency Hotlines")
+                                }
+                                NavigationLink(destination: FinancialServicesView()) {
+                                    categoryButton(icon: "building.columns.fill", title: "Financial Services")
                                 }
                                 NavigationLink(destination: SelfCareResourcesView()) {
                                     categoryButton(icon: "heart.fill", title: "Self-Care Resources")
                                 }
                                 NavigationLink(destination: FoodandClothingView()) {
-                                    categoryButton(icon: "apple.fill", title: "Food and Clothing Resources")
+                                    categoryButton(icon: "bag.fill", title: "Food and Clothing Resources")
+                                }
+                                NavigationLink(destination: HousingandShelterView()) {
+                                    categoryButton(icon: "house.fill", title: "Housing and Shelter Resources")
+                                }
+                                NavigationLink(destination: ParentResourcesView()) {
+                                    categoryButton(icon: "person.fill", title: "Parental Resources")
+                                }
+                                NavigationLink(destination: AcademicandEducationView()) {
+                                    categoryButton(icon: "book.fill", title: "Academic and Education Resources")
+                                }
+                                NavigationLink(destination: ProductGiveawaysView()) {
+                                    categoryButton(icon: "gift.fill", title: "Product Giveaways")
                                 }
                             }
                             .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .pad ? 24 : 16)
@@ -181,8 +193,8 @@ struct HomePageView: View {
         .frame(maxWidth: .infinity)
         .padding()
         .frame(height: UIDevice.current.userInterfaceIdiom == .pad ? 100 : 80)
-        .background(Color.white)
-        .foregroundColor(.blue)
+        .background(Color(hex: "#FFB6C1"))
+        .foregroundColor(Color(hex: "ffffff"))
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
     }

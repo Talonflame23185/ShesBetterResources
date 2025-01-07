@@ -20,29 +20,29 @@ struct ProfileView: View {
     @State private var isShowingSavedResources = false
     @State private var selectedLocation: String = "[Location]"
     @State private var isLocationDropdownExpanded: Bool = false
-    @State private var selectedSchool: String = "[School]"
-    @State private var isSchoolDropdownExpanded: Bool = false
     @State private var showDeleteConfirmation = false
-
+    
     private let db = Firestore.firestore()
     private let storage = Storage.storage()
-
+    
     var body: some View {
         NavigationView {
             ZStack {
-                Image("Background")
-                    .resizable()
-                    .scaledToFill()
+                //Image("Background")
+                //   .resizable()
+                //   .scaledToFill()
+                LinearGradient(gradient: Gradient(colors: [Color(hex: "#5ef7e8"), Color(hex: "#f567db")]),
+                               startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
-
+                
                 GeometryReader { geometry in
                     ScrollView(showsIndicators: false) {
-                        VStack(spacing: UIDevice.current.userInterfaceIdiom == .pad ? 40 : -20) {
+                        VStack(spacing: UIDevice.current.userInterfaceIdiom == .pad ? 40 : -10) {
                             // Add top safe area padding
                             Color.clear.frame(height: UIDevice.current.userInterfaceIdiom == .pad ? 95 : -50)
                             
                             
-                            .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .pad ? 32 : 16)
+                                .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .pad ? 32 : 16)
                             
                             // Profile Image Section
                             VStack(spacing: UIDevice.current.userInterfaceIdiom == .pad ? 16 : 8) {
@@ -87,64 +87,54 @@ struct ProfileView: View {
                                 // Form Fields Content
                                 VStack(spacing: UIDevice.current.userInterfaceIdiom == .pad ? 32 : 20) {
                                     formSection(title: "Email") {
-                                    TextField("Email", text: .constant(email))
-                                        .foregroundColor(.white)
-                                        .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16))
-                                        .padding()
-                                        .background(Color.white.opacity(0.15))
-                                        .cornerRadius(12)
-                                        .disabled(true)
-                                }
-                                
-                                    formSection(title: "Location") {
-                                        locationButton
-                                        if isLocationDropdownExpanded {
-                                            locationDropdown
-                                        }
+                                        TextField("Email", text: .constant(email))
+                                            .foregroundColor(.white)
+                                            .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16))
+                                            .padding()
+                                            .background(Color(hex: "#57facf").opacity(0.6))
+                                            .cornerRadius(12)
+                                            .disabled(true)
                                     }
                                     
-                                    formSection(title: "School") {
-                                        schoolButton
-                                        if isSchoolDropdownExpanded {
-                                            schoolDropdown
-                                        }
-                                    }
+                                    
                                 }
-                            
-                            // Action Buttons
+                                
+                                // Action Buttons
                                 VStack(spacing: UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16) {
-                                NavigationLink(destination: SavedView().navigationBarHidden(true)) {
-                                    profileRow(icon: "heart.fill", text: "Saved Resources")
-                                }
-                                
+                                    NavigationLink(destination: SavedView().navigationBarHidden(true)) {
+                                        profileRow(icon: "heart.fill", text: "My Saved Resources")
+                                            .background(Color(hex: "#57facf").opacity(0.6))
+                                            .cornerRadius(12)
+                                    }
+                                    
                                     Button(action: { authViewModel.signOut() }) {
-                                    HStack {
-                                        Image(systemName: "arrow.right.square.fill")
-                                            .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 20))
-                                        Text("Log Out")
+                                        HStack {
+                                            Image(systemName: "arrow.right.square.fill")
+                                                .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 20))
+                                            Text("Log Out")
                                                 .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 18, weight: .bold))
+                                        }
+                                        .foregroundColor(.white)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16)
+                                        .background(Color.red.opacity(0.8))
+                                        .cornerRadius(12)
                                     }
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16)
-                                    .background(Color.red.opacity(0.8))
-                                    .cornerRadius(12)
-                                }
-                                
+                                    
                                     Button(action: { showDeleteConfirmation = true }) {
-                                    HStack {
-                                        Image(systemName: "trash")
-                                            .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 20))
-                                        Text("Delete Account")
+                                        HStack {
+                                            Image(systemName: "trash")
+                                                .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 20))
+                                            Text("Delete Account")
                                                 .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 18, weight: .bold))
+                                        }
+                                        .foregroundColor(.white)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16)
+                                        .background(Color.red.opacity(0.8))
+                                        .cornerRadius(12)
                                     }
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16)
-                                    .background(Color.red.opacity(0.8))
-                                    .cornerRadius(12)
                                 }
-                            }
                             }
                             .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? min(geometry.size.width * 0.5, 600) : .infinity)
                             .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .pad ? 0 : 16)
@@ -171,7 +161,7 @@ struct ProfileView: View {
             Text("Are you sure you want to delete your account? This action cannot be undone.")
         }
     }
-
+    
     private var locationButton: some View {
         Button(action: {
             withAnimation { isLocationDropdownExpanded.toggle() }
@@ -190,7 +180,7 @@ struct ProfileView: View {
             .cornerRadius(12)
         }
     }
-
+    
     private var locationDropdown: some View {
         VStack(spacing: 0) {
             locationOption("Arizona")
@@ -200,36 +190,8 @@ struct ProfileView: View {
         .background(Color.white.opacity(0.15))
         .cornerRadius(12)
     }
-
-    private var schoolButton: some View {
-        Button(action: {
-            withAnimation { isSchoolDropdownExpanded.toggle() }
-        }) {
-            HStack {
-                Text(selectedSchool)
-                    .foregroundColor(.white)
-                    .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16))
-                Spacer()
-                Image(systemName: isSchoolDropdownExpanded ? "chevron.up" : "chevron.down")
-                    .foregroundColor(.white)
-                    .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 18 : 14))
-            }
-            .padding()
-            .background(Color.white.opacity(0.15))
-            .cornerRadius(12)
-        }
-    }
-
-    private var schoolDropdown: some View {
-        VStack(spacing: 0) {
-            ForEach(filteredSchools, id: \.self) { school in
-                schoolOption(school)
-            }
-        }
-        .background(Color.white.opacity(0.15))
-        .cornerRadius(12)
-    }
-
+    
+    
     private func formSection(title: String, @ViewBuilder content: () -> some View) -> some View {
         VStack(alignment: .leading, spacing: UIDevice.current.userInterfaceIdiom == .pad ? 12 : 8) {
             Text(title)
@@ -238,7 +200,7 @@ struct ProfileView: View {
             content()
         }
     }
-
+    
     private func locationOption(_ location: String) -> some View {
         Button(action: {
             withAnimation {
@@ -254,23 +216,7 @@ struct ProfileView: View {
                 .padding(.horizontal)
         }
     }
-
-    private func schoolOption(_ school: String) -> some View {
-        Button(action: {
-            withAnimation {
-                isSchoolDropdownExpanded = false
-            }
-            updateSchool(school)
-        }) {
-            Text(school)
-                .foregroundColor(.white)
-                .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16))
-                .padding(.vertical, UIDevice.current.userInterfaceIdiom == .pad ? 16 : 12)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-        }
-    }
-
+    
     private func profileRow(icon: String, text: String) -> some View {
         HStack {
             Image(systemName: icon)
@@ -285,24 +231,7 @@ struct ProfileView: View {
         .background(Color.white.opacity(0.2))
         .cornerRadius(12)
     }
-
-    private var filteredSchools: [String] {
-        let arizonaSchools = ["Arizona State University", "University of Arizona", "Northern Arizona University"]
-        let californiaSchools = [
-            "Stanford University", "California Institute of Technology", "University of California, Berkeley",
-            "University of Southern California", "University of California, Los Angeles"
-        ]
-
-        switch selectedLocation {
-        case "Arizona":
-            return arizonaSchools
-        case "California":
-            return californiaSchools
-        default:
-            return []
-        }
-    }
-
+    
     private func loadUserData() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         db.collection("users").document(uid).getDocument { document, error in
@@ -315,7 +244,6 @@ struct ProfileView: View {
                 self.userName = data?["name"] as? String ?? "[Name]"
                 self.email = data?["email"] as? String ?? "[Email]"
                 self.selectedLocation = data?["location"] as? String ?? "[Location]"
-                self.selectedSchool = data?["school"] as? String ?? "[School]"
                 if let profileImageURLString = data?["profileImageURL"] as? String,
                    let url = URL(string: profileImageURLString) {
                     self.profileImageURL = url
@@ -324,7 +252,7 @@ struct ProfileView: View {
             }
         }
     }
-
+    
     private func loadImage(from url: URL) {
         let task = URLSession.shared.dataTask(with: url) { data, _, _ in
             if let data = data, let uiImage = UIImage(data: data) {
@@ -335,18 +263,18 @@ struct ProfileView: View {
         }
         task.resume()
     }
-
+    
     private func saveProfileImage(_ image: UIImage) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let imageData = image.jpegData(compressionQuality: 0.8) else { return }
-
+        
         let storageRef = storage.reference().child("profile_images/\(uid).jpg")
         storageRef.putData(imageData, metadata: nil) { _, error in
             if let error = error {
                 self.errorMessage = "Error uploading profile image: \(error.localizedDescription)"
                 return
             }
-
+            
             storageRef.downloadURL { url, error in
                 if let error = error {
                     self.errorMessage = "Error retrieving profile image URL: \(error.localizedDescription)"
@@ -357,7 +285,7 @@ struct ProfileView: View {
             }
         }
     }
-
+    
     private func updateProfileImageURL(uid: String, url: URL) {
         db.collection("users").document(uid).updateData(["profileImageURL": url.absoluteString]) { error in
             if let error = error {
@@ -365,7 +293,7 @@ struct ProfileView: View {
             }
         }
     }
-
+    
     private func updateLocation(_ location: String) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         db.collection("users").document(uid).updateData(["location": location]) { error in
@@ -373,23 +301,10 @@ struct ProfileView: View {
                 self.errorMessage = "Error updating location: \(error.localizedDescription)"
             } else {
                 self.selectedLocation = location
-                self.selectedSchool = "[School]"
-            }
-        }
-    }
-
-    private func updateSchool(_ school: String) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        db.collection("users").document(uid).updateData(["school": school]) { error in
-            if let error = error {
-                self.errorMessage = "Error updating school: \(error.localizedDescription)"
-            } else {
-                self.selectedSchool = school
             }
         }
     }
 }
-
 struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
     var onImagePicked: (UIImage) -> Void

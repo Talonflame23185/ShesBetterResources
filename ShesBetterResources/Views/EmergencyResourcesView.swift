@@ -16,13 +16,14 @@ struct EmergencyResourcesView: View {
     var body: some View {
         VStack(alignment: .leading) {
             // Title
-            Text("Emergency Hotlines")
+            Text("Emergency Resources")
                 .font(.custom("Lora-Regular", size: 35))
-                .foregroundColor(Color(hex: "f4eof8"))
+                .foregroundColor(Color(hex: "ffffff"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top)
 
             // Search Bar
+            Spacer(minLength: 30)
             
             TextField("Search Hotlines", text: $searchText)
                 .padding()
@@ -35,7 +36,7 @@ struct EmergencyResourcesView: View {
                 LazyVStack(spacing: 16) {
                     if filteredHotlines.isEmpty {
                         Text("No hotlines found.")
-                            .font(.headline)
+                            .font(.custom("Lora-Regular", size: 22))
                             .foregroundColor(.white)
                             .padding(.top)
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -64,7 +65,7 @@ struct EmergencyResourcesView: View {
     // Fetch emergency hotlines from Firestore
     private func fetchEmergencyHotlines() {
         db.collection("shesbetterResources")
-            .whereField("Resource Type", isEqualTo: "emergency")
+            .whereField("resource type", isEqualTo: "emergency")
             .getDocuments { querySnapshot, error in
                 if let error = error {
                     print("Error fetching emergency hotlines: \(error)")

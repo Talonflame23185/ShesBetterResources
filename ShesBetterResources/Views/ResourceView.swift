@@ -80,10 +80,10 @@ struct ResourcesAppView: View {
                 })
                 
                 // Title
-                Text("Resources")
+                Text("All Resources")
                     .font(.custom("Lora-Regular", size: UIDevice.current.userInterfaceIdiom == .pad ? 80 : 60))
                     .foregroundColor(.white)
-                    .padding(.top, -1)
+                    .padding(.top, 10)
                     .padding(.bottom, -10)
                     .frame(maxWidth: .infinity, alignment: .center)
 
@@ -131,8 +131,8 @@ struct ResourcesAppView: View {
                     LazyVGrid(columns: gridColumns, spacing: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 16) {
                         if filteredResources.isEmpty {
                             Text("No resources found.")
-                                .font(.headline)
-                                .foregroundColor(.gray)
+                                .font(.custom("Lora-Regular", size: 22))
+                                .foregroundColor(.white)
                                 .padding(.top)
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .gridCellColumns(gridColumns.count)
@@ -169,7 +169,7 @@ struct ResourcesAppView: View {
                     print("Error fetching documents: \(error)")
                 } else {
                     guard let documents = querySnapshot?.documents else {
-                        print("No documents found in resourcesApp.")
+                        print("No documents found in shesbetterResources.")
                         return
                     }
                     

@@ -31,10 +31,6 @@
 		BB224F012D194610000805FA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F002D194610000805FA /* FirebaseStorage */; };
 		BB224F032D194610000805FA /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F022D194610000805FA /* FirebaseStorageCombine-Community */; };
 		BB224F052D194610000805FA /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = BB224F042D194610000805FA /* FirebaseVertexAI */; };
-		BB6640DE2D260817008B73DA /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB6640DD2D260817008B73DA /* Lora-Regular.ttf */; };
-		BB721D5A2D2393180081B078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info.plist */; };
-		BB721D5B2D2393180081B078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info.plist */; };
-		BB721D5C2D2393180081B078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB721D592D2393180081B078 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,13 +54,32 @@
 		BB224EA82D1943F7000805FA /* ShesBetterResources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShesBetterResources.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB224EB82D1943FB000805FA /* ShesBetterResourcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShesBetterResourcesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB224EC22D1943FB000805FA /* ShesBetterResourcesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShesBetterResourcesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB6640DD2D260817008B73DA /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lora-Regular.ttf"; path = "../../../Downloads/Lora/static/Lora-Regular.ttf"; sourceTree = "<group>"; };
-		BB721D592D2393180081B078 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BBD253652D2CBA2000F9EBE0 /* Exceptions for "ShesBetterResources" folder in "ShesBetterResourcesTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = BB224EB72D1943FB000805FA /* ShesBetterResourcesTests */;
+		};
+		BBD253662D2CBA2000F9EBE0 /* Exceptions for "ShesBetterResources" folder in "ShesBetterResourcesUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = BB224EC12D1943FB000805FA /* ShesBetterResourcesUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BB224EAA2D1943F7000805FA /* ShesBetterResources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BBD253652D2CBA2000F9EBE0 /* Exceptions for "ShesBetterResources" folder in "ShesBetterResourcesTests" target */,
+				BBD253662D2CBA2000F9EBE0 /* Exceptions for "ShesBetterResources" folder in "ShesBetterResourcesUITests" target */,
+			);
 			path = ShesBetterResources;
 			sourceTree = "<group>";
 		};
@@ -122,8 +137,6 @@
 		BB224E9F2D1943F7000805FA = {
 			isa = PBXGroup;
 			children = (
-				BB6640DD2D260817008B73DA /* Lora-Regular.ttf */,
-				BB721D592D2393180081B078 /* GoogleService-Info.plist */,
 				BB224EAA2D1943F7000805FA /* ShesBetterResources */,
 				BB224EA92D1943F7000805FA /* Products */,
 			);
@@ -304,8 +317,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB6640DE2D260817008B73DA /* Lora-Regular.ttf in Resources */,
-				BB721D5B2D2393180081B078 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +324,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB721D5C2D2393180081B078 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB721D5A2D2393180081B078 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,11 +18,13 @@ struct SelfCareResourcesView: View {
             // Title
             Text("Self-Care Resources")
                 .font(.custom("Lora-Regular", size: 35))
-                .foregroundColor(Color(hex: "ecebeb"))
+                .foregroundColor(Color(hex: "ffffff"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top)
 
             // Search Bar
+            Spacer(minLength: 30)
+            
             TextField("Search Resources", text: $searchText)
                 .padding()
                 .background(Color.white)
@@ -34,7 +36,7 @@ struct SelfCareResourcesView: View {
                 LazyVStack(spacing: 16) {
                     if filteredResources.isEmpty {
                         Text("No resources found.")
-                            .font(.headline)
+                            .font(.custom("Lora-Regular", size: 22))
                             .foregroundColor(.white)
                             .padding(.top)
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -63,7 +65,7 @@ struct SelfCareResourcesView: View {
     // Fetch self-care resources from Firestore
     private func fetchSelfCareResources() {
         db.collection("shesbetterResources")
-            .whereField("Resource Type", isEqualTo: "self care")
+            .whereField("resource type", isEqualTo: "self care")
             .getDocuments { querySnapshot, error in
                 if let error = error {
                     print("Error fetching self-care resources: \(error)")

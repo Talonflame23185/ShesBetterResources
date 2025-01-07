@@ -17,7 +17,7 @@ struct LocationView: View {
     var body: some View {
         ZStack {
             // Background gradient
-            LinearGradient(gradient: Gradient(colors: [Color(hex: "3b3aaf"), Color(hex: "1d1ba9")]),
+            LinearGradient(gradient: Gradient(colors: [Color(hex: "#5ef7e8"), Color(hex: "#f567db")]),
                            startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
 
@@ -45,12 +45,12 @@ struct LocationView: View {
                 // Search Field with Icon and custom placeholder color
                 HStack {
                     Image(systemName: "magnifyingglass")
-                        .foregroundColor(.white.opacity(0.7))
+                        .foregroundColor(.white)
                     TextField("Search for your state", text: $searchText)
                         .foregroundColor(.white)
                         .placeholder(when: searchText.isEmpty) {
                             Text("Search for your state")
-                                .foregroundColor(Color.white.opacity(0.9)) // More visible placeholder color
+                                .foregroundColor(Color.white) // More visible placeholder color
                         }
                 }
                 .padding()

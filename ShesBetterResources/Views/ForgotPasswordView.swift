@@ -15,9 +15,8 @@ struct ForgotPasswordView: View {
     var body: some View {
         ZStack {
             // Background image
-            Image("Background")
-                .resizable()
-                .scaledToFill()
+            LinearGradient(gradient: Gradient(colors: [Color(hex: "#5ef7e8"), Color(hex: "#f567db")]),
+                           startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
 
             VStack(spacing: 20) {
@@ -51,9 +50,9 @@ struct ForgotPasswordView: View {
 
                     TextField("name@example.com", text: $email)
                         .padding()
-                        .background(Color(hex: "ceb6e7"))
+                        .background(Color(hex: "#a2fbfc"))
                         .cornerRadius(10)
-                        .foregroundColor(Color(hex: "9b98eb"))
+                        .foregroundColor(Color(hex: "#a2fbfc"))
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                 }
@@ -66,7 +65,7 @@ struct ForgotPasswordView: View {
                         .font(.custom("Lora-Regular", size: 24))
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color(hex: "a17187"))
+                        .background(Color(hex: "#fc8bea"))
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }

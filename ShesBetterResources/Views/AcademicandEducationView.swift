@@ -1,29 +1,28 @@
 //
-//  FinancialResourcesView.swift
+//  AcademicandEducationView.swift
 //  ShesBetterResources
 //
-//  Created by Connor Ott on 12/30/24.
+//  Created by Connor Ott on 1/6/25.
 //
 import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct FinancialServicesView: View {
+struct AcademicandEducationView: View {
     @State private var searchText = ""
-    @State private var financialResources: [ResourceItem] = [] // Dynamic resources fetched from Firestore
+    @State private var academicandeducationalResources: [ResourceItem] = [] // Dynamic resources fetched from Firestore
     private let db = Firestore.firestore()
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             // Title
-            Text("Financial Services")
+            Text("Academic and Educational Resources")
                 .font(.custom("Lora-Regular", size: 35))
                 .foregroundColor(Color(hex: "ffffff"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top)
 
             // Search Bar
-            Spacer(minLength: 30)
             TextField("Search Resources", text: $searchText)
                 .padding()
                 .background(Color.white)
@@ -56,21 +55,21 @@ struct FinancialServicesView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
         )
-        .navigationTitle("Financial Resources")
+        .navigationTitle("Academic and Education Resources")
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear(perform: fetchFinancialResources)
+        .onAppear(perform: fetchFoodandClothingResources)
     }
 
-    // Fetch financial resources from Firestore
-    private func fetchFinancialResources() {
+    // Fetch academic resources from Firestore
+    private func fetchFoodandClothingResources() {
         db.collection("shesbetterResources")
-            .whereField("resource type", isEqualTo: "financial")
+            .whereField("resource type", in: ["academic", "educational"])
             .getDocuments { querySnapshot, error in
                 if let error = error {
-                    print("Error fetching financial resources: \(error)")
+                    print("Error fetching academic and educational resources: \(error)")
                 } else {
                     guard let documents = querySnapshot?.documents else { return }
-                    self.financialResources = documents.compactMap { document in
+                    self.academicandeducationalResources = documents.compactMap { document in
                         try? document.data(as: ResourceItem.self)
                     }
                 }
@@ -79,14 +78,15 @@ struct FinancialServicesView: View {
 
     // Filter resources based on search text
     private var filteredResources: [ResourceItem] {
-        financialResources.filter { resource in
+        academicandeducationalResources.filter { resource in
             searchText.isEmpty || resource.title.lowercased().contains(searchText.lowercased())
         }
     }
 }
 
-struct FinancialServicesView_Previews: PreviewProvider {
+struct AcademicAndEductionView_Previews: PreviewProvider {
     static var previews: some View {
-        FinancialServicesView()
+        AcademicandEducationView()
     }
 }
+

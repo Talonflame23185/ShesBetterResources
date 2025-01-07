@@ -1,22 +1,22 @@
 //
-//  FinancialResourcesView.swift
+//  ParentResourcesView.swift
 //  ShesBetterResources
 //
-//  Created by Connor Ott on 12/30/24.
+//  Created by Connor Ott on 1/6/25.
 //
 import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct FinancialServicesView: View {
+struct ParentResourcesView: View {
     @State private var searchText = ""
-    @State private var financialResources: [ResourceItem] = [] // Dynamic resources fetched from Firestore
+    @State private var parentResources: [ResourceItem] = [] // Dynamic resources fetched from Firestore
     private let db = Firestore.firestore()
 
     var body: some View {
         VStack(alignment: .leading) {
             // Title
-            Text("Financial Services")
+            Text("Parental Resources")
                 .font(.custom("Lora-Regular", size: 35))
                 .foregroundColor(Color(hex: "ffffff"))
                 .frame(maxWidth: .infinity, alignment: .center)
@@ -24,6 +24,7 @@ struct FinancialServicesView: View {
 
             // Search Bar
             Spacer(minLength: 30)
+            
             TextField("Search Resources", text: $searchText)
                 .padding()
                 .background(Color.white)
@@ -56,21 +57,21 @@ struct FinancialServicesView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
         )
-        .navigationTitle("Financial Resources")
+        .navigationTitle("Parental Resources")
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear(perform: fetchFinancialResources)
+        .onAppear(perform: fetchSelfCareResources)
     }
 
-    // Fetch financial resources from Firestore
-    private func fetchFinancialResources() {
+    // Fetch self-care resources from Firestore
+    private func fetchSelfCareResources() {
         db.collection("shesbetterResources")
-            .whereField("resource type", isEqualTo: "financial")
+            .whereField("resource type", isEqualTo: "parent")
             .getDocuments { querySnapshot, error in
                 if let error = error {
-                    print("Error fetching financial resources: \(error)")
+                    print("Error fetching self-care resources: \(error)")
                 } else {
                     guard let documents = querySnapshot?.documents else { return }
-                    self.financialResources = documents.compactMap { document in
+                    self.parentResources = documents.compactMap { document in
                         try? document.data(as: ResourceItem.self)
                     }
                 }
@@ -79,14 +80,16 @@ struct FinancialServicesView: View {
 
     // Filter resources based on search text
     private var filteredResources: [ResourceItem] {
-        financialResources.filter { resource in
+        parentResources.filter { resource in
             searchText.isEmpty || resource.title.lowercased().contains(searchText.lowercased())
         }
     }
 }
 
-struct FinancialServicesView_Previews: PreviewProvider {
+
+struct ParentalResourcesView_Previews: PreviewProvider {
     static var previews: some View {
-        FinancialServicesView()
+        ParentResourcesView()
     }
 }
+

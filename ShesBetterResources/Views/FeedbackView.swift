@@ -20,9 +20,8 @@ struct FeedbackView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Image("Background")
-                    .resizable()
-                    .scaledToFill()
+                LinearGradient(gradient: Gradient(colors: [Color(hex: "#5ef7e8"), Color(hex: "#f567db")]),
+                               startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
 
                 GeometryReader { geometry in
@@ -92,7 +91,7 @@ struct FeedbackView: View {
                                     .padding(.vertical, UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16)
                                     .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? min(geometry.size.width * 0.7, 800) : .infinity)
                                     .background(
-                                        LinearGradient(gradient: Gradient(colors: [Color(hex: "#5a0ef6"), Color(hex: "#7849fd")]),
+                                        LinearGradient(gradient: Gradient(colors: [Color(hex: "#cc8aff"), Color(hex: "#f567db")]),
                                                      startPoint: .leading, endPoint: .trailing)
                                     )
                                     .cornerRadius(16)

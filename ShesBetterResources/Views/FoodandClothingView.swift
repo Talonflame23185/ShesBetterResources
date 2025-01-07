@@ -10,15 +10,15 @@ import FirebaseFirestore
 
 struct FoodandClothingView: View {
     @State private var searchText = ""
-    @State private var academicResources: [ResourceItem] = [] // Dynamic resources fetched from Firestore
+    @State private var foodandclothingResources: [ResourceItem] = [] // Dynamic resources fetched from Firestore
     private let db = Firestore.firestore()
     
     var body: some View {
         VStack(alignment: .leading) {
             // Title
             Text("Food and Clothing Resources")
-                .font(.custom("Impact", size: 35))
-                .foregroundColor(Color(hex: "98b6f8"))
+                .font(.custom("Lora-Regular", size: 35))
+                .foregroundColor(Color(hex: "ffffff"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top)
 
@@ -34,7 +34,7 @@ struct FoodandClothingView: View {
                 LazyVStack(spacing: 16) {
                     if filteredResources.isEmpty {
                         Text("No resources found.")
-                            .font(.headline)
+                            .font(.custom("Lora-Regular", size: 22))
                             .foregroundColor(.white)
                             .padding(.top)
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -50,26 +50,26 @@ struct FoodandClothingView: View {
         }
         .padding()
         .background(
-            Image("background")
+            Image("Background")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
         )
         .navigationTitle("Food and Clothing Resources")
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear(perform: fetchAcademicResources)
+        .onAppear(perform: fetchFoodandClothingResources)
     }
 
     // Fetch academic resources from Firestore
-    private func fetchAcademicResources() {
+    private func fetchFoodandClothingResources() {
         db.collection("shesbetterResources")
-            .whereField("Resource Type", isEqualTo: "food and clothing")
+            .whereField("resource type", isEqualTo: "food and clothing")
             .getDocuments { querySnapshot, error in
                 if let error = error {
-                    print("Error fetching academic resources: \(error)")
+                    print("Error fetching food and clothing resources: \(error)")
                 } else {
                     guard let documents = querySnapshot?.documents else { return }
-                    self.academicResources = documents.compactMap { document in
+                    self.foodandclothingResources = documents.compactMap { document in
                         try? document.data(as: ResourceItem.self)
                     }
                 }
@@ -78,13 +78,13 @@ struct FoodandClothingView: View {
 
     // Filter resources based on search text
     private var filteredResources: [ResourceItem] {
-        academicResources.filter { resource in
+        foodandclothingResources.filter { resource in
             searchText.isEmpty || resource.title.lowercased().contains(searchText.lowercased())
         }
     }
 }
 
-struct AcademicStressView_Previews: PreviewProvider {
+struct FoodAndClothingView_Previews: PreviewProvider {
     static var previews: some View {
         FoodandClothingView()
     }

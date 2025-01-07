@@ -64,7 +64,7 @@ struct SavedView: View {
                             Group {
                                 if savedResources.isEmpty {
                                     Text("No saved resources yet.")
-                                        .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 18))
+                                        .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 24 : 22))
                                         .foregroundColor(.white)
                                         .padding()
                                 } else {
